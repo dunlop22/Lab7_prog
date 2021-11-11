@@ -5,6 +5,7 @@
 #include "Koleso.h"
 #include "Obchee.h"
 #include "Motor.h"
+#include "Korobka.h"
 #include <locale.h>
 #include <string>
 
@@ -18,6 +19,7 @@ int main()
     Koleso Kolesiko;
     Obchee Obchie;
     Motor Motorik;
+    Korobka Korobas;
     do
     {
         system("cls");
@@ -44,7 +46,21 @@ int main()
     }
     if (menu == '2')
     {
-        
+        do
+        {
+            system("cls");
+            cout << "1) Создание коробки со своими данными\n2) Создание коробки по конструктору";
+            podmenu = _getch();
+        } while (podmenu < '1' || podmenu > '2');
+        if (podmenu == '1')
+        {
+            Korobas.new_korobka_info();
+        }
+        else
+        {
+            Korobas.new_korobka_peredach(5, "АКПП");
+        }
+        Korobas.prosmotr_korobka_peredach();
     }
     if (menu == '3')
     {
@@ -63,6 +79,7 @@ int main()
         {
             Motorik.new_motor(100, 10, "FB20", 2, 4, 4);
         }
+        Motorik.prosmotr_motor();
     }
     if (menu == '4')
     {
@@ -81,6 +98,7 @@ int main()
         {
             Obchie.new_obchee(5, 1500, "Toyota", 7, "4WD", "Бензин", 65);
         }
+        Obchie.prosmotr_obchee();
     }
     if (menu == '5')
     {
