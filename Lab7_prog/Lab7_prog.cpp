@@ -159,28 +159,51 @@ int main()
         }
         if (menu == '8')
         {
-            Motor* Motor_Mass = new Motor[3];
-            cout << "\n\nДвигатель №1";
-            
-            
-//            Motor_mass[0].new_koleso(225, 55, 17, "Литье");
-            Motor_Mass[0].new_motor(100, 10, "FB20", 2, 4, 4);
-            Motor_Mass[0].prosmotr_motor();
-            cout << "\n\nДвигатель №2";
-            Motor_Mass[1].new_motor(249, 16, "2GR-FE", 3.5, 6, 4);
-            Motor_Mass[1].prosmotr_motor();
-            cout << "\n\nДвигатель №3";
-            Motor_Mass[2] = Motor_Mass[0] + Motor_Mass[1];
-            Motor_Mass[2].prosmotr_motor();
-            /*cout << "\n\nДвигатель №2";
-            cout << "\n\nКолесо №2";
-            Kolesiko_mass[1].new_koleso(225, 55, 21, "Литье");
-            Kolesiko_mass[1].prosmotr_koleso();
-            cout << "\n\nКолесо №3";
-            Kolesiko_mass[2].new_koleso(225, 55, 0, "Литье");
-            Kolesiko_mass[2] = Kolesiko_mass[1] + Kolesiko_mass[0];
-            Kolesiko_mass[2].prosmotr_koleso();
-            */
+            do
+            {
+                system("cls");
+                cout << "1) +\n2) ++ (префиксный)\n3) ++ (постфиксный)";
+                podmenu = _getch();
+            } while (podmenu < '1' || podmenu > '3');
+            if (podmenu == '1')
+            {
+                Motor* Motor_Mass = new Motor[3];
+                cout << "\n\nДвигатель №1";
+                Motor_Mass[0].new_motor(100, 10, "FB20", 2, 4, 4);
+                Motor_Mass[0].prosmotr_motor();
+                cout << "\n\nДвигатель №2";
+                Motor_Mass[1].new_motor(249, 16, "2GR-FE", 3.5, 6, 4);
+                Motor_Mass[1].prosmotr_motor();
+                cout << "\n\nДвигатель №3";
+                Motor_Mass[2] = Motor_Mass[0] + Motor_Mass[1];
+                Motor_Mass[2].prosmotr_motor();
+            }
+            if (podmenu == '2' || podmenu == '3')
+            {
+                Korobka* Korobchik = new Korobka[2];
+                if (podmenu == '2')
+                {
+                    cout << "Информация о коробке передач до:\n\nКоробка №1";
+                    Korobchik[0].new_korobka_peredach(7, "АКПП");
+                    Korobchik[0].prosmotr_korobka_peredach();
+
+                    cout << "\n\nКоробка №2";
+                    Korobchik[1].new_korobka_peredach(5, "МКПП");
+                    Korobchik[1].prosmotr_korobka_peredach();
+
+                    ++Korobchik[0]; 
+                    Korobchik[1] = Korobchik[0];
+
+                    cout << "Информация о коробке передач после:\n\nКоробка №1";
+                    Korobchik[0].prosmotr_korobka_peredach();
+                    cout << "\n\nКоробка №2";
+                    Korobchik[1].prosmotr_korobka_peredach();
+                }   
+                else
+                {
+
+                }
+            }
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
         }
