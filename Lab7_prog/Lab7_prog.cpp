@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Koleso.h"
 #include "Obchee.h"
+#include "Motor.h"
 #include <locale.h>
 #include <string>
 
@@ -16,6 +17,7 @@ int main()
     int podmenu;
     Koleso Kolesiko;
     Obchee Obchie;
+    Motor Motorik;
     do
     {
         system("cls");
@@ -60,8 +62,21 @@ int main()
     }
     if (menu == '3')
     {
+        do
+        {
+            system("cls");
+            cout << "1) Создание двигателя со своими данными\n2) Создание двигателя по конструктору";
+            podmenu = _getch();
+        } while (podmenu < 1 || podmenu > 2);
 
-
+        if (podmenu == '1')
+        {
+            Motorik.new_motor_info();
+        }
+        if (podmenu == '2')
+        {
+            Motorik.new_motor(100, 10, "FB20", 2, 4, 4);
+        }
     }
     if (menu == '4')
     {

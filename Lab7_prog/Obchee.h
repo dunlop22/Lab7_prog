@@ -1,9 +1,9 @@
 #pragma once
 using namespace std;
 #include <string>
+
 class Obchee
 {
-    
 public:
     Obchee();
     void new_obchee_info();
