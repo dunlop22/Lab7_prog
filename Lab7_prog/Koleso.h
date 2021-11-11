@@ -4,6 +4,7 @@ using namespace std;
 
 class Koleso
 {
+	friend class Avto;
 public:
 
 	Koleso();
@@ -13,7 +14,7 @@ public:
 	void new_koleso_info();
 	void Diametr_inf(double& diametr_inf);
 	void Visota_inf(double* visota_inf);
-
+	
 private:
 	double shirina = 225;
 	double visota = 55;

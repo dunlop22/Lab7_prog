@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Koleso.h"
 #include "Obchee.h"
+#include "Avto.h"
 #include "Motor.h"
 #include "Korobka.h"
 #include <locale.h>
@@ -20,14 +21,15 @@ int main()
     Obchee Obchie;
     Motor Motorik;
     Korobka Korobas;
+    Avto Avtomobil;
     do
     {
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n\n0) Выход";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n7) Использование дружественной функции\n\n0) Выход";
             menu = _getch();
-        } while (menu < '0' && menu > '6');
+        } while (menu < '0' && menu > '7');
         if (menu == '1')
         {
             do
@@ -104,7 +106,12 @@ int main()
         }
         if (menu == '5')
         {
+            system("cls");
+            
+            Avtomobil.new_avto();
 
+            cout << "Автомобиль успешно собран!\n\nНажмите любую клавишу для возврата в меню";
+            _getch();
         }
         if (menu == '6')
         {
@@ -118,6 +125,36 @@ int main()
             Kolesiko.Visota_inf(&visota_ret);
             cout << "\n\nВозврат через указатель\nВысота: " << visota_ret;
             cout << "\n\n\nНажмите любую клавишу для возврата в меню";
+            _getch();
+        }
+        if (menu == '7')
+        {
+            cout << "Данные об автомобиле до внесения изменений: ";
+            Avtomobil.new_avto();
+            Avtomobil.prosmotr_avto();
+
+            double diametr_new, visota_new;
+            cout << "\n\nВведите новый диаметр колеса: ";
+            while (scanf("%lf", &diametr_new) != 1 || diametr_new < 0)
+            {
+                printf("Неверно введено значение диаметра колеса, попробуйте еще: ");
+                while (getchar() != '\n');
+            }
+            while (getchar() != '\n');
+            
+            cout << "Введите новую высоту колеса: ";
+            while (scanf("%lf", &visota_new) != 1 || visota_new < 0)
+            {
+                printf("Неверно введено значение высоты колеса, попробуйте еще: ");
+                while (getchar() != '\n');
+            }
+            while (getchar() != '\n');
+            
+            Avtomobil.new_danii_kolesa(diametr_new, visota_new);
+            cout << "\n\nДанные об автомобиле после внесения изменений: ";
+            Avtomobil.prosmotr_avto();
+
+            cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
         }
     } while (menu != 0);
