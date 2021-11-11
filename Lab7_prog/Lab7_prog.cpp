@@ -44,21 +44,7 @@ int main()
     }
     if (menu == '2')
     {
-        do
-        {
-            system("cls");
-            cout << "1) Создание общей информации со своими данными\n2) Создание общей информации по конструктору";
-            podmenu = _getch();
-        } while (podmenu < 1 || podmenu > 2);
         
-        if (podmenu == '1')
-        {
-            Obchie.new_obchee_info();
-        }
-        if (podmenu == '2')
-        {
-            Obchie.new_obchee(5, 1500, "Toyota", 7, "4WD", "Бензин", 65);
-        }
     }
     if (menu == '3')
     {
@@ -80,7 +66,21 @@ int main()
     }
     if (menu == '4')
     {
+        do
+        {
+            system("cls");
+            cout << "1) Создание общей информации со своими данными\n2) Создание общей информации по конструктору";
+            podmenu = _getch();
+        } while (podmenu < 1 || podmenu > 2);
 
+        if (podmenu == '1')
+        {
+            Obchie.new_obchee_info();
+        }
+        if (podmenu == '2')
+        {
+            Obchie.new_obchee(5, 1500, "Toyota", 7, "4WD", "Бензин", 65);
+        }
     }
     if (menu == '5')
     {
