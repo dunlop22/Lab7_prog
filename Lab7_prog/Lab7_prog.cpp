@@ -27,9 +27,9 @@ int main()
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n7) Использование дружественной функции\n\n0) Выход";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n7) Использование дружественной функции\n8) Перегрузка операторов\n\n0) Выход";
             menu = _getch();
-        } while (menu < '0' && menu > '7');
+        } while (menu < '0' && menu > '9');
         if (menu == '1')
         {
             do
@@ -156,6 +156,36 @@ int main()
 
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
+        }
+        if (menu == '8')
+        {
+            Motor* Motor_Mass = new Motor[3];
+            cout << "\n\nДвигатель №1";
+            
+            
+//            Motor_mass[0].new_koleso(225, 55, 17, "Литье");
+            Motor_Mass[0].new_motor(100, 10, "FB20", 2, 4, 4);
+            Motor_Mass[0].prosmotr_motor();
+            cout << "\n\nДвигатель №2";
+            Motor_Mass[1].new_motor(249, 16, "2GR-FE", 3.5, 6, 4);
+            Motor_Mass[1].prosmotr_motor();
+            cout << "\n\nДвигатель №3";
+            Motor_Mass[2] = Motor_Mass[0] + Motor_Mass[1];
+            Motor_Mass[2].prosmotr_motor();
+            /*cout << "\n\nДвигатель №2";
+            cout << "\n\nКолесо №2";
+            Kolesiko_mass[1].new_koleso(225, 55, 21, "Литье");
+            Kolesiko_mass[1].prosmotr_koleso();
+            cout << "\n\nКолесо №3";
+            Kolesiko_mass[2].new_koleso(225, 55, 0, "Литье");
+            Kolesiko_mass[2] = Kolesiko_mass[1] + Kolesiko_mass[0];
+            Kolesiko_mass[2].prosmotr_koleso();
+            */
+            cout << "\n\nНажмите любую клавишу для возврата в меню.";
+            _getch();
+        }
+        if (menu == '9')
+        {
         }
     } while (menu != 0);
 }
