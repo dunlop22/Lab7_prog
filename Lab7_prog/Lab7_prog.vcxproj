@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Koleso.cpp" />
     <ClCompile Include="Lab7_prog.cpp" />
+    <ClCompile Include="Obchee.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Koleso.h" />
+    <ClInclude Include="Obchee.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
