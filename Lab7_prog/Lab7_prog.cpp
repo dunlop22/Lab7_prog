@@ -181,28 +181,24 @@ int main()
             if (podmenu == '2' || podmenu == '3')
             {
                 Korobka* Korobchik = new Korobka[2];
+                cout << "Информация о коробке передач до:\n\nКоробка №1";
+                Korobchik[0].new_korobka_peredach(7, "АКПП");
+                Korobchik[0].prosmotr_korobka_peredach();
+                                cout << "********************";
+
                 if (podmenu == '2')
                 {
-                    cout << "Информация о коробке передач до:\n\nКоробка №1";
-                    Korobchik[0].new_korobka_peredach(7, "АКПП");
-                    Korobchik[0].prosmotr_korobka_peredach();
-
-                    cout << "\n\nКоробка №2";
-                    Korobchik[1].new_korobka_peredach(5, "МКПП");
-                    Korobchik[1].prosmotr_korobka_peredach();
-
                     ++Korobchik[0]; 
                     Korobchik[1] = Korobchik[0];
-
-                    cout << "Информация о коробке передач после:\n\nКоробка №1";
-                    Korobchik[0].prosmotr_korobka_peredach();
-                    cout << "\n\nКоробка №2";
-                    Korobchik[1].prosmotr_korobka_peredach();
                 }   
                 else
                 {
-
+                    Korobchik[1] = Korobchik[0]++;
                 }
+                cout << "\n\nИнформация о коробке передач после:\n\nКоробка №1";
+                Korobchik[0].prosmotr_korobka_peredach();
+                cout << "\n\nКоробка №2";
+                Korobchik[1].prosmotr_korobka_peredach();
             }
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
