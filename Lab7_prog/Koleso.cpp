@@ -60,7 +60,7 @@ void Koleso::new_koleso(double shirina_1, double visota_1, double diametr_1, str
 //функция вывода информации о колесе
 void Koleso::prosmotr_koleso()
 {
-	cout << "\nШирина колеса : " << shirina;
+	cout << "\n\nДАННЫЕ О КОЛЕСАХ:\nШирина колеса : " << shirina;
 	cout << "\nДиаметр колеса: " << diametr;
 	cout << "\nВысота колеса: " << visota;
 	cout << "\nТип диска: " << tip_diska;

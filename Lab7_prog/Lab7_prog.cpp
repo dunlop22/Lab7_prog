@@ -27,7 +27,7 @@ int main()
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n7) Использование дружественной функции\n8) Перегрузка операторов\n\n0) Выход";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n7) Использование дружественной функции\n8) Перегрузка операторов\n9) Строки (string)\n\n0) Выход";
             menu = _getch();
         } while (menu < '0' && menu > '9');
         if (menu == '1')
@@ -129,6 +129,7 @@ int main()
         }
         if (menu == '7')
         {
+            system("cls");
             cout << "Данные об автомобиле до внесения изменений: ";
             Avtomobil.new_avto();
             Avtomobil.prosmotr_avto();
@@ -165,6 +166,7 @@ int main()
                 cout << "1) +\n2) ++ (префиксный)\n3) ++ (постфиксный)";
                 podmenu = _getch();
             } while (podmenu < '1' || podmenu > '3');
+            system("cls");
             if (podmenu == '1')
             {
                 Motor* Motor_Mass = new Motor[3];
@@ -180,11 +182,12 @@ int main()
             }
             if (podmenu == '2' || podmenu == '3')
             {
+                
                 Korobka* Korobchik = new Korobka[2];
                 cout << "Информация о коробке передач до:\n\nКоробка №1";
                 Korobchik[0].new_korobka_peredach(7, "АКПП");
                 Korobchik[0].prosmotr_korobka_peredach();
-                                cout << "********************";
+                cout << "\n\n********************";
 
                 if (podmenu == '2')
                 {
@@ -205,6 +208,24 @@ int main()
         }
         if (menu == '9')
         {
+            system("cls");
+            int n;
+            string country = "Japan";
+            Koleso* Kolesiko_mass = new Koleso[20];
+            do
+            {
+                cout << "Введите количество создаваемых колес: ";
+                cin >> n;
+            } while (n <= 0 && n > 20);
+
+            for (int i = 0; i < n; i++)
+            {
+                Kolesiko_mass[i].new_koleso(185 + i * 10, 30 + i * 2, 13 + i * 1, "Литье №" + to_string(i + 1) + " " + country);
+                Kolesiko_mass[i].prosmotr_koleso();
+                cout << "\n\n";
+            }
+            cout << "\n\nНажмите любую клавишу для возврата в меню.";
+            _getch();
         }
     } while (menu != 0);
 }
