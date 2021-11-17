@@ -57,7 +57,10 @@ int main()
             }
             else if (podmenu == '3')
             {
-                delete Kolesiko;
+                if (Koleso::kolvo_return())
+                {
+                    delete Kolesiko;
+                }
             }
             
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
