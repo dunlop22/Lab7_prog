@@ -18,8 +18,6 @@ int main()
     SetConsoleOutputCP(1251);
     int menu;
     int podmenu;
-    Koleso Kolesiko;
-    Koleso* Kol = new Koleso();
     Obchee Obchie;
     Motor Motorik;
     Korobka Korobas;
@@ -35,25 +33,33 @@ int main()
         } while (menu < '0' && menu > '9');
         if (menu == '1')
         {
+            Koleso* Kolesiko = new Koleso();
             do
             {
                 system("cls");
                 
                 cout << "Последний уникальный ID: " << setw(6) << setfill('0') << Koleso::id_return()  << endl;		//вывод не несущих нулей до числа
                 cout << "\nОбщее количество созданных колес: " << Koleso::kolvo_return();
-                cout << "\n\n1) Создание колеса со своими данными\n2) Создание колеса по конструктору\n";
+                cout << "\n\n1) Создание колеса со своими данными\n2) Создание колеса по конструктору\n3) Удаление";
                 podmenu = _getch();
-            } while (podmenu < '1' || podmenu > '4');
+            } while (podmenu < '1' || podmenu > '3');
             if (podmenu == '1')
             {
-                Kolesiko.new_koleso_info();
+                (*Kolesiko).new_koleso_info();
+                cout << "\n\nНовое колесо:\n\n";
+                (*Kolesiko).prosmotr_koleso();
             }
             else if (podmenu == '2')
             {
-                Kolesiko.new_koleso(225, 55, 17, "Литье");
+                (*Kolesiko).new_koleso(225, 55, 17, "Литье");
+                cout << "\n\nНовое колесо:\n\n";
+                (*Kolesiko).prosmotr_koleso();
             }
-            cout << "\n\nНовое колесо:\n\n";
-            Kolesiko.prosmotr_koleso();
+            else if (podmenu == '3')
+            {
+                delete Kolesiko;
+            }
+            
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
         }

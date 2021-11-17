@@ -11,12 +11,17 @@ int Koleso::id_kolesa = 0;
 
 Koleso::Koleso()
 {
+	id = -1;
 	visota = -1;
 	shirina = -1;
 	diametr = -1;
 	tip_diska[0] = '\0';
 }
 
+Koleso::~Koleso()
+{
+	kolvo_koles = kolvo_koles - 1;
+}
 void Koleso::new_koleso_info()
 {
 	system("cls");

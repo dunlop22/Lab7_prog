@@ -18,6 +18,7 @@ public:
 	static int id_return();
 	static void id_new(int &id);
 	static int kolvo_return();
+	~Koleso();
 
 private:
 	static int id_kolesa;
