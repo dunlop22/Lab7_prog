@@ -1,8 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Koleso.h"
 #include <iostream>
+#include <iomanip>
 #include <conio.h>
 using namespace std;
+
+int Koleso::kolvo_koles = 0;
+int Koleso::id_kolesa = 0;
+
 
 Koleso::Koleso()
 {
@@ -46,21 +51,27 @@ void Koleso::new_koleso_info()
 		printf("Неверно введен тип колесного диска, попробуйте еще: ");
 		std::getline(std::cin, tip_diska);
 	}
+	kolvo_koles = kolvo_koles + 1;
+	id_new(id);
 }
+
 
 //функция создания колеса
 void Koleso::new_koleso(double shirina_1, double visota_1, double diametr_1, string tip_diska_1)
 {
+	id_new(id);
 	tip_diska = tip_diska_1;
 	shirina = shirina_1;
 	visota = visota_1;
 	diametr = diametr_1;
+	kolvo_koles = kolvo_koles + 1;
 }
 
 //функция вывода информации о колесе
 void Koleso::prosmotr_koleso()
 {
-	cout << "\n\nДАННЫЕ О КОЛЕСАХ:\nШирина колеса : " << shirina;
+	cout << "ID: " << setw(6) << setfill('0') << id << endl;		//вывод не несущих нулей до числа
+	cout << "\nШирина колеса : " << shirina;
 	cout << "\nДиаметр колеса: " << diametr;
 	cout << "\nВысота колеса: " << visota;
 	cout << "\nТип диска: " << tip_diska;
@@ -77,3 +88,20 @@ void Koleso::Visota_inf(double* visota_inf)
 {
 	(*visota_inf) += this->visota;
 }
+
+int Koleso::id_return()
+{
+	return id_kolesa;
+}
+
+void Koleso::id_new(int &id)
+{
+	id_kolesa = id_kolesa + 1;
+	id = id_kolesa;
+}
+
+int Koleso::kolvo_return()
+{
+	return kolvo_koles;
+}
+

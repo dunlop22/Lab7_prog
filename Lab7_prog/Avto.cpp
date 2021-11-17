@@ -22,7 +22,7 @@ void Avto::new_avto()
     Obch.new_obchee(5, 1500, "Toyota", 7, "4WD", "Бензин", 65);
     Mot.new_motor(100, 10, "FB20", 2, 4, 4);
     Korob.new_korobka_peredach(5, "АКПП");
-    Kol.new_koleso(225, 55, 17, "Литье");
+    //Kol.new_koleso(225, 55, 17, "Литье");
 
     Obchie = Obch;
     Motorik = Mot;

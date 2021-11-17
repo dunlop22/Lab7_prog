@@ -2,6 +2,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <iostream>
+#include <iomanip>
 #include "Koleso.h"
 #include "Obchee.h"
 #include "Avto.h"
@@ -18,6 +19,7 @@ int main()
     int menu;
     int podmenu;
     Koleso Kolesiko;
+    Koleso* Kol = new Koleso();
     Obchee Obchie;
     Motor Motorik;
     Korobka Korobas;
@@ -28,6 +30,7 @@ int main()
         {
             system("cls");
             cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Возврат значений (* | &)\n7) Использование дружественной функции\n8) Перегрузка операторов\n9) Строки (string)\n\n0) Выход";
+            cout << Koleso::kolvo_return();
             menu = _getch();
         } while (menu < '0' && menu > '9');
         if (menu == '1')
@@ -35,18 +38,24 @@ int main()
             do
             {
                 system("cls");
-                cout << "1) Создание колеса со своими данными\n2) Создание колеса по конструктору";
+                
+                cout << "Последний уникальный ID: " << setw(6) << setfill('0') << Koleso::id_return()  << endl;		//вывод не несущих нулей до числа
+                cout << "\nОбщее количество созданных колес: " << Koleso::kolvo_return();
+                cout << "\n\n1) Создание колеса со своими данными\n2) Создание колеса по конструктору\n";
                 podmenu = _getch();
-            } while (podmenu < '1' || podmenu > '2');
+            } while (podmenu < '1' || podmenu > '4');
             if (podmenu == '1')
             {
                 Kolesiko.new_koleso_info();
             }
-            else
+            else if (podmenu == '2')
             {
                 Kolesiko.new_koleso(225, 55, 17, "Литье");
             }
+            cout << "\n\nНовое колесо:\n\n";
             Kolesiko.prosmotr_koleso();
+            cout << "\n\nНажмите любую клавишу для возврата в меню.";
+            _getch();
         }
         if (menu == '2')
         {
@@ -113,6 +122,7 @@ int main()
             cout << "Автомобиль успешно собран!\n\nНажмите любую клавишу для возврата в меню";
             _getch();
         }
+        /*
         if (menu == '6')
         {
             system("cls");
@@ -127,6 +137,7 @@ int main()
             cout << "\n\n\nНажмите любую клавишу для возврата в меню";
             _getch();
         }
+        */
         if (menu == '7')
         {
             system("cls");
@@ -206,7 +217,7 @@ int main()
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
         }
-        if (menu == '9')
+        /*if (menu == '9')
         {
             system("cls");
             int n;
@@ -227,5 +238,6 @@ int main()
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
         }
+        */
     } while (menu != 0);
 }
