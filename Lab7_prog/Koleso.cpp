@@ -11,11 +11,22 @@ int Koleso::id_kolesa = 0;
 
 Koleso::Koleso()
 {
-	id = -1;
-	visota = -1;
-	shirina = -1;
-	diametr = -1;
-	tip_diska[0] = '\0';
+	id = 045450 + kolvo_koles;
+	visota = 55;
+	shirina = 225;
+	diametr = 17;
+	tip_diska = "Литье";
+	kolvo_koles = kolvo_koles + 1;
+}
+
+Koleso::Koleso(int diametr)
+{
+	id = 045450 + kolvo_koles;
+	visota = 55;
+	shirina = 225;
+	this->diametr = diametr;
+	tip_diska = "Литье";
+	kolvo_koles = kolvo_koles + 1;
 }
 
 Koleso::~Koleso()

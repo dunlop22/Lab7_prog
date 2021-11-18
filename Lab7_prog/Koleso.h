@@ -9,6 +9,7 @@ class Koleso
 public:
 
 	Koleso();
+	Koleso(int diametr);
 	
 	void prosmotr_koleso();
 	void new_koleso(double shirina_1, double visota_1, double diametr_1, string tip_diska_1);
