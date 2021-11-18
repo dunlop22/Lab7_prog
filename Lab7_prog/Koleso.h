@@ -10,7 +10,18 @@ public:
 
 	Koleso();
 	Koleso(int diametr);
+	Koleso(const Koleso& koleso);
+
+	void deep_copy(const Koleso& source);
+
+	Koleso& operator=(const Koleso& source)
+	{
+		deep_copy(source);
+		return *this;
+	}
 	
+
+	void dia_izm();
 	void prosmotr_koleso();
 	void new_koleso(double shirina_1, double visota_1, double diametr_1, string tip_diska_1);
 	void new_koleso_info();

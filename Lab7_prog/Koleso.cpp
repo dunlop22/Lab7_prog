@@ -8,6 +8,17 @@ using namespace std;
 int Koleso::kolvo_koles = 0;
 int Koleso::id_kolesa = 0;
 
+Koleso::Koleso(const Koleso& koleso)
+{
+	//*this = koleso;
+	diametr = koleso.diametr;
+	visota = koleso.visota;
+	tip_diska = koleso.tip_diska;
+	shirina = koleso.shirina;
+	id = koleso.id;
+	
+}
+
 
 Koleso::Koleso()
 {
@@ -32,6 +43,18 @@ Koleso::Koleso(int diametr)
 Koleso::~Koleso()
 {
 	kolvo_koles = kolvo_koles - 1;
+}
+
+void Koleso::dia_izm()
+{
+	this->diametr = this->diametr - 4;
+}
+
+
+
+void Koleso::deep_copy(const Koleso& source)
+{
+	diametr = source.diametr;
 }
 void Koleso::new_koleso_info()
 {

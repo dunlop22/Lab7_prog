@@ -158,9 +158,21 @@ int main()
             _getch();
         }
         */
+        
         if (menu == '7')
         {
             system("cls");
+            Koleso *kol_mass = new Koleso[3];
+            for (int i = 0; i < 3; i++)
+            {
+                kol_mass[i] = *new Koleso(12);
+                cout << "\n\n";
+                kol_mass[i].prosmotr_koleso();
+            }
+            
+            
+            
+           /* system("cls");
             
             Koleso *kol = new Koleso[3];
             for (int i = 0; i < 3; i++)
@@ -169,6 +181,7 @@ int main()
                 cout << "\n\nЭлемент № " << (i + 1) << "\n\n";
                 kol[i].prosmotr_koleso();
             }
+            */
             cout << "\n\nНажмите любую клавишу для возврата в меню";
             _getch();
         }
@@ -206,7 +219,28 @@ int main()
         */
         if (menu == '8')
         {
-            do
+            Koleso* kol = new Koleso(15);
+
+            Koleso* kol2 = new Koleso(*kol);    //глубокое копирование
+            Koleso kol3;
+            Koleso& kol1 = *kol; //поверхностное копирование
+
+            kol->dia_izm();
+
+            cout << "\n\n\nОригинал: ";
+            kol->prosmotr_koleso();
+
+            cout << "\n\n\nПоверхностное копирование: ";
+            kol1.prosmotr_koleso();
+
+            cout << "\n\n\nГлубокое копирование: ";
+            kol2->prosmotr_koleso();
+            cout << "\n\nНажмите любую клавишу для возврата в меню";
+            _getch();
+        }
+            /*
+        {
+            /do
             {
                 system("cls");
                 cout << "1) +\n2) ++ (префиксный)\n3) ++ (постфиксный)";
@@ -252,6 +286,7 @@ int main()
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();
         }
+        */
         /*if (menu == '9')
         {
             system("cls");
