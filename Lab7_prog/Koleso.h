@@ -30,6 +30,7 @@ public:
 	static int id_return();
 	static void id_new(int &id);
 	static int kolvo_return();
+	int auto_otnoshenie();
 	~Koleso();
 
 private:
@@ -38,6 +39,7 @@ private:
 	int shirina = 225;
 	int visota = 55;
 	int diametr = 17;
+	int othoshenie;
 	int id;
 	string tip_diska = "Литье";
 };

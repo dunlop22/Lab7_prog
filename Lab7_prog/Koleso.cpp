@@ -28,6 +28,7 @@ Koleso::Koleso()
 	diametr = 17;
 	tip_diska = "Литье";
 	kolvo_koles = kolvo_koles + 1;
+	othoshenie = 0;
 }
 
 Koleso::Koleso(int diametr)
@@ -56,6 +57,17 @@ void Koleso::deep_copy(const Koleso& source)
 {
 	diametr = source.diametr;
 } 
+
+int Koleso::auto_otnoshenie()	//автоподсчет ширины к высоте
+{
+	if (visota == 0)
+	{
+		throw "Высота = 0. Вычисление высоты колеса в см невозможен";
+	}
+	return (shirina * visota / 100);
+
+}
+
 int check_param(int min, int max, int &orig)
 {
 	int temp;
@@ -90,57 +102,12 @@ void Koleso::new_koleso_info()
 	do 
 	{} while (check_param(0, 300, shirina) == 0);
 
-	/*
-	do {
-		try
-		{
-			cin >> temp;
-			if (temp < 0)
-			{
-				throw "Введено отрицательное значение.";
-			}
-			else if (temp > 300)
-			{
-				throw "Введено слишком большое значение.";
-			}
-			cout << "Значение удовлетворяет условию. \n\n";
-			shirina = temp;
-		}
-		catch (const char* exception)
-		{
-			cerr << "Error: " << exception;
-			cout << "\nПовторите попытку: ";
-		}
-	} while (shirina != temp);
-
-	/*while (scanf("%lf", &shirina) != 1 || shirina < 0)
-	{
-		printf("Неверно введено значение ширины колеса, попробуйте еще: ");
-		while (getchar() != '\n');
-	}
-	while (getchar() != '\n');
-	*/
-
 	cout << "Введите высоту колеса: ";
 	do {} while (check_param(0, 80, visota) == 0);
 
-	/*
-	while (scanf("%lf", &visota) != 1 || visota < 0)
-	{
-		printf("Неверно введено значение высоты колеса, попробуйте еще: ");
-		while (getchar() != '\n');
-	}
-	while (getchar() != '\n');*/
 
 	cout << "Введите диаметр колеса в дюймах: ";
 	do {} while (check_param(0, 25, diametr) == 0);
-
-	/*while (scanf("%lf", &diametr) != 1 || diametr < 0)
-	{
-		printf("Неверно введено значение диаметра колеса, попробуйте еще: ");
-		while (getchar() != '\n');
-	}
-	while (getchar() != '\n');*/
 
 	while (getchar() != '\n');
 	cout << "Введите тип колесного диска (штамповка/литье/ковка): ";
@@ -150,6 +117,16 @@ void Koleso::new_koleso_info()
 		printf("Неверно введен тип колесного диска, попробуйте еще: ");
 		std::getline(std::cin, tip_diska);
 	}
+
+	try
+	{
+		othoshenie = auto_otnoshenie();
+	}
+	catch (const char* exception)
+	{
+		cerr << "\n\nError: " << exception;
+	}
+
 	kolvo_koles = kolvo_koles + 1;
 	id_new(id);
 }
@@ -174,6 +151,10 @@ void Koleso::prosmotr_koleso()
 	cout << "\nДиаметр колеса: " << diametr;
 	cout << "\nВысота колеса: " << visota;
 	cout << "\nТип диска: " << tip_diska;
+	if (othoshenie != 0)
+	{
+		cout << "\nВысота колеса (мм): " << othoshenie;
+	}
 }
 
 //возврат через ссылку &
