@@ -99,15 +99,14 @@ void Koleso::new_koleso_info()
 	system("cls");
 	cout << "Добавление информации о колесах автомобиля\n\nВведите ширину колеса: ";
 	
-	do 
-	{} while (check_param(0, 300, shirina) == 0);
+	while (check_param(0, 300, shirina) == 0);
 
 	cout << "Введите высоту колеса: ";
-	do {} while (check_param(0, 80, visota) == 0);
+	while (check_param(0, 80, visota) == 0);
 
 
 	cout << "Введите диаметр колеса в дюймах: ";
-	do {} while (check_param(0, 25, diametr) == 0);
+	while (check_param(0, 25, diametr) == 0);
 
 	while (getchar() != '\n');
 	cout << "Введите тип колесного диска (штамповка/литье/ковка): ";
