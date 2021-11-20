@@ -55,34 +55,94 @@ void Koleso::dia_izm()
 void Koleso::deep_copy(const Koleso& source)
 {
 	diametr = source.diametr;
+} 
+int check_param(int min, int max, int &orig)
+{
+	int temp;
+	try
+	{
+		cin >> temp;
+		if (temp < min)
+		{
+			throw "Введено отрицательное значение.";
+		}
+		else if (temp > max)
+		{
+			throw "Введено слишком большое значение.";
+		}
+		cout << "Значение удовлетворяет условию. \n\n";
+		orig = temp;
+		return 1;
+	}
+	catch (const char* exception)
+	{
+		cerr << "Error: " << exception;
+		cout << "\nПовторите попытку: ";
+		return 0;
+	}
 }
+
 void Koleso::new_koleso_info()
 {
 	system("cls");
 	cout << "Добавление информации о колесах автомобиля\n\nВведите ширину колеса: ";
-	while (scanf("%lf", &shirina) != 1 || shirina < 0)
+	
+	do 
+	{} while (check_param(0, 300, shirina) == 0);
+
+	/*
+	do {
+		try
+		{
+			cin >> temp;
+			if (temp < 0)
+			{
+				throw "Введено отрицательное значение.";
+			}
+			else if (temp > 300)
+			{
+				throw "Введено слишком большое значение.";
+			}
+			cout << "Значение удовлетворяет условию. \n\n";
+			shirina = temp;
+		}
+		catch (const char* exception)
+		{
+			cerr << "Error: " << exception;
+			cout << "\nПовторите попытку: ";
+		}
+	} while (shirina != temp);
+
+	/*while (scanf("%lf", &shirina) != 1 || shirina < 0)
 	{
 		printf("Неверно введено значение ширины колеса, попробуйте еще: ");
 		while (getchar() != '\n');
 	}
 	while (getchar() != '\n');
+	*/
 
 	cout << "Введите высоту колеса: ";
+	do {} while (check_param(0, 80, visota) == 0);
+
+	/*
 	while (scanf("%lf", &visota) != 1 || visota < 0)
 	{
 		printf("Неверно введено значение высоты колеса, попробуйте еще: ");
 		while (getchar() != '\n');
 	}
-	while (getchar() != '\n');
+	while (getchar() != '\n');*/
 
 	cout << "Введите диаметр колеса в дюймах: ";
-	while (scanf("%lf", &diametr) != 1 || diametr < 0)
+	do {} while (check_param(0, 25, diametr) == 0);
+
+	/*while (scanf("%lf", &diametr) != 1 || diametr < 0)
 	{
 		printf("Неверно введено значение диаметра колеса, попробуйте еще: ");
 		while (getchar() != '\n');
 	}
-	while (getchar() != '\n');
+	while (getchar() != '\n');*/
 
+	while (getchar() != '\n');
 	cout << "Введите тип колесного диска (штамповка/литье/ковка): ";
 	std::getline(std::cin, tip_diska);
 	while (tip_diska.length() == 0)

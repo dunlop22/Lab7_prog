@@ -35,9 +35,9 @@ public:
 private:
 	static int id_kolesa;
 	static int kolvo_koles;
-	double shirina = 225;
-	double visota = 55;
-	double diametr = 17;
+	int shirina = 225;
+	int visota = 55;
+	int diametr = 17;
 	int id;
 	string tip_diska = "Литье";
 };
