@@ -154,7 +154,6 @@ void Koleso::prosmotr_koleso()
 	cout << "\nШирина колеса : " << shirina;
 	cout << "\nДиаметр колеса: " << diametr;
 	cout << "\nВысота колеса: " << visota;
-	cout << "\nТип диска: " << tip_diska;
 	if (othoshenie != 0)
 	{
 		cout << "\nВысота колеса (мм): " << othoshenie;
