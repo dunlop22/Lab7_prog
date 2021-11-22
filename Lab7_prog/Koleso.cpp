@@ -56,6 +56,11 @@ void Koleso::dia_izm()
 void Koleso::deep_copy(const Koleso& source)
 {
 	diametr = source.diametr;
+	diametr = source.diametr;
+	visota = source.visota;
+	tip_diska = source.tip_diska;
+	shirina = source.shirina;
+	id = source.id;
 } 
 
 int Koleso::auto_otnoshenie()	//автоподсчет ширины к высоте
@@ -171,6 +176,18 @@ void Koleso::Visota_inf(double* visota_inf)
 int Koleso::id_return()
 {
 	return id_kolesa;
+}
+
+
+int Koleso::diametr_info()
+{
+	return this->diametr;
+}
+
+
+string Koleso::dannii()
+{
+	return (to_string(this->shirina) + "/" + to_string(this->visota) + "/" + to_string(this->diametr));
 }
 
 void Koleso::id_new(int &id)

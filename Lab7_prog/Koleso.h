@@ -31,14 +31,16 @@ public:
 	static void id_new(int &id);
 	static int kolvo_return();
 	int auto_otnoshenie();
+	int diametr_info();
+	string dannii();
 	~Koleso();
 
 private:
 	static int id_kolesa;
 	static int kolvo_koles;
-	int shirina = 225;
-	int visota = 55;
-	int diametr = 17;
+	int shirina = -1;
+	int visota = -1;
+	int diametr = -1;
 	int othoshenie;
 	int id;
 	string tip_diska = "Литье";
