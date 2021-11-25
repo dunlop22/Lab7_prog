@@ -8,6 +8,7 @@
 #include "Avto.h"
 #include "Motor.h"
 #include "Korobka.h"
+#include "Koleso_Zapaska.h"
 #include <locale.h>
 #include <string>
 
@@ -61,28 +62,55 @@ int main()
                 
                 cout << "Последний уникальный ID: " << setw(6) << setfill('0') << Koleso::id_return()  << endl;		//вывод не несущих нулей до числа
                 cout << "\nОбщее количество созданных колес: " << Koleso::kolvo_return();
-                cout << "\n\n1) Создание колеса со своими данными\n2) Создание колеса по конструктору\n3) Удаление";
+                cout << "\n\n1) Создание колеса со своими данными\n2) Создание колеса по конструктору\n";
                 podmenu = _getch();
             } while (podmenu < '1' || podmenu > '3');
             if (podmenu == '1')
             {
                 (*Kolesiko).new_koleso_info();
-                cout << "\n\nНовое колесо:\n\n";
-                (*Kolesiko).prosmotr_koleso();
             }
             else if (podmenu == '2')
             {
                 (*Kolesiko).new_koleso(225, 55, 17, "Литье");
-                cout << "\n\nНовое колесо:\n\n";
-                (*Kolesiko).prosmotr_koleso();
             }
-            else if (podmenu == '3')
+            system("cls");
+            cout << "Новое колесо:\n\n";
+            (*Kolesiko).prosmotr_koleso();
+            int zap;
+            cout << "\n\nВведите тип запасного колеса\n\n1) Полноразмерное\n2) Докатка\n3) Отсутствует";
+            do
             {
-                if (Koleso::kolvo_return())
-                {
-                    delete Kolesiko;
-                }
+                zap = _getch();
+            } while (zap < '1' || zap > '3');
+            Koleso_Zapaska Zapaska;
+            if (zap == '1') //копирование параметров из основного колеса
+            {
+                Zapaska.deep_copy(*Kolesiko);
+                Zapaska.set_vid("Полнормазмерное");
             }
+            else if (zap == '2')
+            {
+                Zapaska.new_koleso_info();
+                Zapaska.set_vid("Докатка");
+                //Koleso_Zapaska* qw = &kolzap;
+                //Koleso_Zapaska Zapaska = *new Koleso_Zapaska();
+            }
+            else if (zap == '3')
+            {
+                Zapaska.set_vid("Отсутствует");
+            }
+            system("cls");
+            (*Kolesiko).prosmotr_koleso();
+            cout << "\n\nЗапасное колесо: ";
+            if (zap != '3')
+            {
+                Zapaska.Koleso_print();
+            }
+            else
+            {
+                cout << Zapaska.vid;
+            }
+            
             
             cout << "\n\nНажмите любую клавишу для возврата в меню.";
             _getch();

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
+
+
 using namespace std;
 
 int Koleso::kolvo_koles = 0;
@@ -10,6 +12,7 @@ int Koleso::id_kolesa = 0;
 
 Koleso::Koleso(const Koleso& koleso)
 {
+	Koleso
 	//*this = koleso;
 	diametr = koleso.diametr;
 	visota = koleso.visota;
@@ -17,6 +20,11 @@ Koleso::Koleso(const Koleso& koleso)
 	shirina = koleso.shirina;
 	id = koleso.id;
 	
+}
+
+Koleso::Koleso(char asq)
+{
+	new_koleso_info();
 }
 
 
@@ -39,6 +47,11 @@ Koleso::Koleso(int diametr)
 	this->diametr = diametr;
 	tip_diska = "Литье";
 	kolvo_koles = kolvo_koles + 1;
+}
+
+Koleso::Koleso(int diametr, int kolvo)
+{
+	this->diametr = diametr;
 }
 
 Koleso::~Koleso()
@@ -154,7 +167,7 @@ void Koleso::prosmotr_koleso()
 	cout << "\nШирина колеса : " << shirina;
 	cout << "\nДиаметр колеса: " << diametr;
 	cout << "\nВысота колеса: " << visota;
-	if (othoshenie != 0)
+	if (othoshenie > 0)
 	{
 		cout << "\nВысота колеса (мм): " << othoshenie;
 	}

@@ -1,7 +1,6 @@
 #pragma once
 using namespace std;
 #include <string>
-
 class Koleso
 {
 	
@@ -10,7 +9,9 @@ public:
 
 	Koleso();
 	Koleso(int diametr);
+	Koleso(int diametr, int kolvo);
 	Koleso(const Koleso& koleso);
+	Koleso(char asq);
 
 	void deep_copy(const Koleso& source);
 
