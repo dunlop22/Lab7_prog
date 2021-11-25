@@ -4,6 +4,9 @@ using namespace std;
 class Koleso
 {
 	
+protected:
+	int kolvo_prokolov = 0;
+
 	friend class Avto;
 public:
 
@@ -13,15 +16,14 @@ public:
 	Koleso(const Koleso& koleso);
 	Koleso(char asq);
 
-	void deep_copy(const Koleso& source);
+
+
 
 	Koleso& operator=(const Koleso& source)
 	{
 		deep_copy(source);
 		return *this;
 	}
-	
-
 	void dia_izm();
 	void prosmotr_koleso();
 	void new_koleso(double shirina_1, double visota_1, double diametr_1, string tip_diska_1);
@@ -33,8 +35,10 @@ public:
 	static int kolvo_return();
 	int auto_otnoshenie();
 	int diametr_info();
+	void deep_copy(const Koleso& source);
 	string dannii();
 	~Koleso();
+	void izm_prokol(int kolvo);
 
 private:
 	static int id_kolesa;

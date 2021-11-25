@@ -50,7 +50,7 @@ int main()
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Конструкторы\n7) Инициализация массива конструктором с одним параметром полей\n8) Массив\n9) Двумерный массив\n\n0) Выход";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Изменение информации о количестве проколов в шине\n7) Инициализация массива конструктором с одним параметром полей\n8) Массив\n9) Двумерный массив\n\n0) Выход";
             menu = _getch();
         } while (menu < '0' && menu > '9');
         if (menu == '1')
@@ -92,12 +92,21 @@ int main()
             {
                 Zapaska.new_koleso_info();
                 Zapaska.set_vid("Докатка");
-                //Koleso_Zapaska* qw = &kolzap;
-                //Koleso_Zapaska Zapaska = *new Koleso_Zapaska();
             }
             else if (zap == '3')
             {
                 Zapaska.set_vid("Отсутствует");
+            }
+            system("cls");
+            if (zap == '1' || zap == '2')
+            {
+                cout << "Введите количество проколов в запасной шине: ";
+                int prokol;
+                do
+                {
+                    cin >> prokol;
+                } while (prokol < 0);
+                Zapaska.prokol_zapaska(prokol);
             }
             system("cls");
             (*Kolesiko).prosmotr_koleso();
@@ -183,6 +192,22 @@ int main()
         if (menu == '6')
         {
             system("cls");
+            cout << "Введите дополнительное количество проколов: ";
+            int n;
+            do
+            {
+                cin >> n;
+            } while (n < 0);
+            Koleso* kolesik = new Koleso();
+            (*kolesik).izm_prokol(n);
+            (*kolesik).prosmotr_koleso();
+            cout << "\n\n\nНажмите любую клавишу для возврата в меню";
+            _getch();
+
+        }
+            /*
+        {
+            system("cls");
             Koleso* kol1 = new Koleso();
             Koleso* kol2 = new Koleso(12);
             cout << "Конструктор без параметров: \n\n";
@@ -191,7 +216,7 @@ int main()
             kol2->prosmotr_koleso();
             cout << "\n\nНажмите любую клавишу для возврата в меню";
             _getch();
-        }
+        }*/
         /*
         {
             system("cls");

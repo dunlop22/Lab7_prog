@@ -10,9 +10,15 @@ void Koleso_Zapaska::set_vid(string vidok)
 	this->vid = vidok;
 }
 
+
 void Koleso_Zapaska::deep_cop(const Koleso& source)
 {
 	this->deep_copy(source);
+}
+
+void Koleso_Zapaska::prokol_zapaska(int kolvo)
+{
+	this->kolvo_prokolov = kolvo;
 }
 
 

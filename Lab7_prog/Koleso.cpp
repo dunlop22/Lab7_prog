@@ -59,6 +59,11 @@ Koleso::~Koleso()
 	kolvo_koles = kolvo_koles - 1;
 }
 
+void Koleso::izm_prokol(int kolvo)
+{
+	this->kolvo_prokolov = kolvo_prokolov + kolvo;
+}
+
 void Koleso::dia_izm()
 {
 	this->diametr = this->diametr - 4;
@@ -171,6 +176,7 @@ void Koleso::prosmotr_koleso()
 	{
 		cout << "\nВысота колеса (мм): " << othoshenie;
 	}
+	cout << "\nКоличество проколов в шине: " << this->kolvo_prokolov;
 }
 
 //возврат через ссылку &

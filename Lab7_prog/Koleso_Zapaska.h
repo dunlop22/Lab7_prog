@@ -9,9 +9,12 @@ public:
 	string vid;
 
 
+
+
 public:
 	void Koleso_print();
 	void set_vid(string vidok);
 	void deep_cop(const Koleso& source);
+	void prokol_zapaska(int kolvo);
 };
 
