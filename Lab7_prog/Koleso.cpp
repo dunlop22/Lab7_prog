@@ -12,7 +12,6 @@ int Koleso::id_kolesa = 0;
 
 Koleso::Koleso(const Koleso& koleso)
 {
-	Koleso
 	//*this = koleso;
 	diametr = koleso.diametr;
 	visota = koleso.visota;
@@ -22,18 +21,12 @@ Koleso::Koleso(const Koleso& koleso)
 	
 }
 
-Koleso::Koleso(char asq)
-{
-	new_koleso_info();
-}
-
-
 Koleso::Koleso()
 {
-	id = 045450 + kolvo_koles;
+	id = 45450 + kolvo_koles;
 	visota = 55;
 	shirina = 225;
-	diametr = 17;
+	//diametr = 17;
 	tip_diska = "Литье";
 	kolvo_koles = kolvo_koles + 1;
 	othoshenie = 0;
@@ -47,11 +40,6 @@ Koleso::Koleso(int diametr)
 	this->diametr = diametr;
 	tip_diska = "Литье";
 	kolvo_koles = kolvo_koles + 1;
-}
-
-Koleso::Koleso(int diametr, int kolvo)
-{
-	this->diametr = diametr;
 }
 
 Koleso::~Koleso()

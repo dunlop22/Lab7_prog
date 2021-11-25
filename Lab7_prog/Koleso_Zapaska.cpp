@@ -5,6 +5,13 @@ using namespace std;
 #include <conio.h>
 #include "Koleso_Zapaska.h"
 
+
+
+Koleso_Zapaska::Koleso_Zapaska()
+{
+}
+
+
 void Koleso_Zapaska::set_vid(string vidok)
 {
 	this->vid = vidok;
@@ -20,6 +27,7 @@ void Koleso_Zapaska::prokol_zapaska(int kolvo)
 {
 	this->kolvo_prokolov = kolvo;
 }
+
 
 
 void Koleso_Zapaska::Koleso_print()
