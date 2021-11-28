@@ -228,11 +228,26 @@ int main()
         
         if (menu == '7')
         {
-            Koleso_Zapaska* Zapaska = new Koleso_Zapaska(12);
 
-            (*Zapaska).Koleso::new_koleso_info();
-            Zapaska->set_vid("Докатка");
+            Koleso_Zapaska* Zapaska = new Koleso_Zapaska(12);
             system("cls");
+            cout << "Перегрузка метода базового класса в производном классе\n1) С вызовом метода базового класса \n2) Без вызова метода базового класса";
+            int tip;
+            do
+            {
+                tip = _getch();
+            } while (tip != '1' || tip != '2');
+            if (tip == '1')
+            {
+                (*Zapaska).new_koleso_info();
+            } 
+            else if (tip == '2')
+            {
+                (*Zapaska).Koleso::new_koleso_info();
+            }
+            
+            Zapaska->set_vid("Докатка");
+            
             cout << "Вид запасного колеса";
             Zapaska->Koleso_print();
             cout << "\n\n\nНажмите любую клавишу для возврата в меню";
