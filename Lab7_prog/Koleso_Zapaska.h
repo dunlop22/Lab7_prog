@@ -13,7 +13,7 @@ public:
 public:
 	Koleso_Zapaska(int diametr) : Koleso(diametr){}	//конструктор производного класса с спарметром в конструктор базового класса с параметром
 
-	Koleso_Zapaska& operator=(const Koleso_Zapaska& other)	//перегрузкf оператора присваивания объекту производного класса объектов базового класса
+	Koleso_Zapaska& operator=(const Koleso_Zapaska& other)	//перегрузка оператора присваивания объекту производного класса объектов базового класса
 	{
 		Koleso::operator=(other);
 		return *this;
