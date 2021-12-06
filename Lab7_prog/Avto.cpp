@@ -1,7 +1,6 @@
 #include "Avto.h";
 #include <iostream>
 using namespace std;
-
 Avto::Avto()
 {
 }
@@ -38,4 +37,3 @@ void Avto::prosmotr_avto()
     Avto::Kolesik.prosmotr_koleso();
     Avto::Koroba.prosmotr_korobka_peredach();
 }
-

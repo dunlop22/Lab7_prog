@@ -33,7 +33,7 @@ Koleso::Koleso()
 	id = 45450 + kolvo_koles;
 	visota = 55;
 	shirina = 225;
-	//diametr = 17;
+	diametr = 17;
 	tip_diska = "Литье";
 	kolvo_koles = kolvo_koles + 1;
 	othoshenie = 0;

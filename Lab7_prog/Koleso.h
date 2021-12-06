@@ -1,7 +1,15 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 using namespace std;
+#include <iostream>  
 #include <string>
-class Koleso
+#include "Koleso_inf.h";
+#define _USE_MATH_DEFINES
+#include <stdio.h>
+#include <math.h>
+
+class Koleso : public Koleso_inf
+//class Koleso
 {
 	
 protected:
@@ -39,6 +47,18 @@ public:
 	string dannii();
 	~Koleso();
 	void izm_prokol(int kolvo);
+
+	double perimetr() override
+	{
+		double duim = 25.375;
+		return (((this->diametr / 2 * duim) + this->visota * this->shirina / 100) * 2 * M_PI);
+	}
+	double obem() override
+	{
+		double duim = 25.375;
+		return (M_PI * pow((diametr * duim / 1000), 2) * shirina / 1000);
+	}
+	
 
 private:
 	static int id_kolesa;
