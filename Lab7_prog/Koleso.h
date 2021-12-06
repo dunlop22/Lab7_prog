@@ -6,17 +6,17 @@ class Koleso
 	
 protected:
 	int kolvo_prokolov = 0;
+	int diametr = -1;
 
 	friend class Avto;
 public:
 
 	Koleso();
 	Koleso(int diametr);
-	Koleso(int diametr, int kolvo);
 	Koleso(const Koleso& koleso);
-	Koleso(char asq);
 
-
+	//int get_tip();
+	virtual int get_tip();	//виртуальная функция!!!
 
 
 	Koleso& operator=(const Koleso& source)
@@ -45,7 +45,7 @@ private:
 	static int kolvo_koles;
 	int shirina = -1;
 	int visota = -1;
-	int diametr = -1;
+	//int diametr = -1;
 	int othoshenie;
 	int id;
 	string tip_diska = "Литье";

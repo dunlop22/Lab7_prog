@@ -21,6 +21,13 @@ Koleso::Koleso(const Koleso& koleso)
 	
 }
 
+int Koleso::get_tip()
+{
+	
+	cout << "\n\nClass: Koleso\n";
+	return (this->diametr);
+}
+
 Koleso::Koleso()
 {
 	id = 45450 + kolvo_koles;

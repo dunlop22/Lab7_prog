@@ -7,6 +7,12 @@ using namespace std;
 
 
 
+int Koleso_Zapaska::get_tip()
+{
+	cout << "\n\nCass: Koleso_Zapaska\n";
+	return (this->diametr);
+}
+
 Koleso_Zapaska::Koleso_Zapaska()
 {
 }

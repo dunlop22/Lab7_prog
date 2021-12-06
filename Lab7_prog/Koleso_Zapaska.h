@@ -18,6 +18,7 @@ public:
 		Koleso::operator=(other);
 		return *this;
 	}
+	int get_tip();
 	Koleso_Zapaska();
 	void Koleso_print();
 	void set_vid(string vidok);
