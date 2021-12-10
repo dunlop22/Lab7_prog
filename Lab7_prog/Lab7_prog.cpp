@@ -55,7 +55,7 @@ int main()
         } while (menu < '0' && menu > '9');
         if (menu == '1')
         {
-            Koleso* Kolesiko = new Koleso();
+            Koleso Kolesiko;
             do
             {
                 
@@ -68,15 +68,17 @@ int main()
             } while (podmenu < '1' || podmenu > '3');
             if (podmenu == '1')
             {
-                (*Kolesiko).new_koleso_info();
+                Kolesiko.new_koleso_info();
             }
             else if (podmenu == '2')
             {
-                (*Kolesiko).new_koleso(225, 55, 17, "Литье");
+                Kolesiko.new_koleso(225, 55, 17, "Литье");
             }
             system("cls");
             cout << "Новое колесо:\n\n";
-            (*Kolesiko).prosmotr_koleso();
+            cout << Kolesiko;
+            //(*Kolesiko).prosmotr_koleso();
+            _getch();
             int zap;
             cout << "\n\nВведите тип запасного колеса\n\n1) Полноразмерное\n2) Докатка\n3) Отсутствует";
             do
@@ -86,7 +88,7 @@ int main()
             Koleso_Zapaska Zapaska;
             if (zap == '1') //копирование параметров из основного колеса
             {
-                Zapaska.deep_copy(*Kolesiko);
+                Zapaska.deep_copy(Kolesiko);
                 Zapaska.set_vid("Полнормазмерное");
             }
             else if (zap == '2')
@@ -110,7 +112,7 @@ int main()
                 Zapaska.prokol_zapaska(prokol);
             }
             system("cls");
-            (*Kolesiko).prosmotr_koleso();
+            (Kolesiko).prosmotr_koleso();
             cout << "\n\nЗапасное колесо: ";
             if (zap != '3')
             {

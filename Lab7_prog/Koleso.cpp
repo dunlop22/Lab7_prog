@@ -21,6 +21,10 @@ Koleso::Koleso(const Koleso& koleso)
 	
 }
 
+
+
+
+
 int Koleso::get_tip()
 {
 	

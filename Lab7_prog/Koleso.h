@@ -29,7 +29,14 @@ public:
 
 	int get_tip();
 	//virtual int get_tip();	//виртуальная функция!!!
-
+	
+	friend void operator << (ostream& o, Koleso kol)
+	{
+		cout << "\nШирина колеса : " << kol.shirina;
+		cout << "\nДиаметр колеса: " << kol.diametr;
+		cout << "\nВысота колеса: " << kol.visota;
+		cout << "\nТип диска: " << kol.tip_diska;
+	}
 
 	Koleso& operator=(const Koleso& source)
 	{
