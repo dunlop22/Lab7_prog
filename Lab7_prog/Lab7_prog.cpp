@@ -230,29 +230,19 @@ int main()
         if (menu == '7')
         {
             
-            Koleso_Zapaska* Zapaska = new Koleso_Zapaska(12);
+            Koleso_Zapaska Zapaska;
+            Koleso kol1;
             system("cls");
-            cout << "Перегрузка метода базового класса в производном классе\n1) С вызовом метода базового класса \n2) Без вызова метода базового класса";
-            int tip;
-            do
-            {
-                tip = _getch();
-            } while (tip != '1' || tip != '2');
-            if (tip == '1')
-            {
-                (*Zapaska).new_koleso_info();
-            } 
-            else if (tip == '2')
-            {
-                (*Zapaska).Koleso::new_koleso_info();
-            }
+            kol1.set(17, 55, 225, "Литье");
+            Zapaska.set(13, 75, 145, "Литье", "Докатка");
             
-            Zapaska->set_vid("Докатка");
             
-            cout << "Вид запасного колеса";
-            Zapaska->Koleso_print();
-            cout << "\n\n\nНажмите любую клавишу для возврата в меню";
-            _getch();
+            cout << "Вид запасного колеса: ";
+            Zapaska.Koleso_print();
+            
+            cout << "\n\n\n";
+            kol1.prosmotr_koleso();
+
             
             /*
             system("cls");
@@ -521,9 +511,12 @@ if (menu == '0')
 {
     system("cls");
     Koleso *kol= new Koleso();
-    cout << "Периметр колеса: " << kol->perimetr() << "мм\n\n";
     kol->prosmotr_koleso();
-    cout << "Объем колеса: " << kol->obem() << "м^3";
+
+
+    cout << "\n\nПериметр колеса: " << kol->perimetr() << "мм";
+    
+    cout << "\n\nОбъем колеса: " << kol->obem() << "м^3";
     cout << "\n\nНажмите любую клавишу для возврата в меню.";
     _getch();
 }

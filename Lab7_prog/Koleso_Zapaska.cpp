@@ -7,6 +7,16 @@ using namespace std;
 
 
 
+
+void Koleso_Zapaska::set(int diametr, int visota, int shirina, string tip_diska, string vid)
+{
+	this->diametr = diametr;
+	this->visota = visota;
+	this->shirina = shirina;
+	this->tip_diska = tip_diska;
+	this->vid = vid;
+}
+
 int Koleso_Zapaska::get_tip()
 {
 	cout << "\n\nCass: Koleso_Zapaska\n";

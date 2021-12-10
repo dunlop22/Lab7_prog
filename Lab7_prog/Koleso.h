@@ -14,17 +14,21 @@ class Koleso : public Koleso_inf
 	
 protected:
 	int kolvo_prokolov = 0;
+public:
 	int diametr = -1;
+	int shirina = -1;
+	int visota = -1;
+	string tip_diska = "Литье";
 
 	friend class Avto;
 public:
-
+	void set(int diametr, int vusota, int shirina, string tip_diska);
 	Koleso();
 	Koleso(int diametr);
 	Koleso(const Koleso& koleso);
 
-	//int get_tip();
-	virtual int get_tip();	//виртуальная функция!!!
+	int get_tip();
+	//virtual int get_tip();	//виртуальная функция!!!
 
 
 	Koleso& operator=(const Koleso& source)
@@ -63,11 +67,9 @@ public:
 private:
 	static int id_kolesa;
 	static int kolvo_koles;
-	int shirina = -1;
-	int visota = -1;
 	//int diametr = -1;
 	int othoshenie;
 	int id;
-	string tip_diska = "Литье";
+	
 };
 

@@ -28,6 +28,14 @@ int Koleso::get_tip()
 	return (this->diametr);
 }
 
+void Koleso::set(int diametr, int vusota, int shirina, string tip_diska)
+{
+	this->diametr = diametr;
+	this->visota = visota;
+	this->shirina = shirina;
+	this->tip_diska = tip_diska;
+}
+
 Koleso::Koleso()
 {
 	id = 45450 + kolvo_koles;

@@ -11,6 +11,8 @@ public:
 
 
 public:
+	void set(int diametr, int visota, int shirina, string tip_diska, string vid);
+
 	Koleso_Zapaska(int diametr) : Koleso(diametr){}	//конструктор производного класса с спарметром в конструктор базового класса с параметром
 
 	Koleso_Zapaska& operator=(const Koleso_Zapaska& other)	//перегрузка оператора присваивания объекту производного класса объектов базового класса
