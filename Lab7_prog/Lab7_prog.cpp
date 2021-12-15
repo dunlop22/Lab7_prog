@@ -1,4 +1,4 @@
-﻿    #define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <conio.h>
 #include <windows.h>
 #include <iostream>
@@ -11,6 +11,9 @@
 #include "Koleso_Zapaska.h"
 #include <locale.h>
 #include <string>
+#include <algorithm>
+#include <vector>
+
 template <class T> class Summa
 {
 public:
@@ -76,6 +79,18 @@ void table_print(Koleso Kol_Mass[4][4])
     cout << "*************************************************\n";
 }
 
+bool Vern_poryadok(Koleso* kol1, Koleso* kol2)  //лабораторная работа 14
+{
+    if (kol1->perimetr() < kol2->perimetr())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
 int main()
 {
@@ -93,7 +108,7 @@ int main()
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Перегрузка оператора присваивания объекту производного класса объектов базового класса\n9) Виртуальные функции\n0) Абстрактный класс";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Сортировка (Контейнер)\n9) Виртуальные функции\n0) Абстрактный класс";
             menu = _getch();
         } while (menu < '0' && menu > '9');
         if (menu == '1')
@@ -399,6 +414,50 @@ int main()
 if (menu == '8')
 {
     system("cls");
+    /*Лабораторная работа 14*/
+
+    vector <Koleso*> Massiv_Koles;
+    vector <Koleso*>::iterator MS;
+    Koleso* kol1 = new Koleso();
+    Koleso* kol2 = new Koleso();
+    Koleso* kol3 = new Koleso();
+    Koleso_Zapaska* zap1 = new Koleso_Zapaska();
+    Koleso_Zapaska* zap2 = new Koleso_Zapaska();
+    Koleso_Zapaska* zap3 = new Koleso_Zapaska();
+    (*kol1).new_koleso(285, 55, 20, "Литье");
+    (*kol1).new_koleso(265, 55, 17, "Литье");
+    (*kol1).new_koleso(235, 55, 16, "Литье");
+    (*zap1).new_koleso(245, 55, 18, "Ковка");
+    (*zap2).new_koleso(185, 55, 15, "Ковка");
+    (*zap3).new_koleso(215, 25, 18, "Ковка");
+
+    Massiv_Koles.clear();
+    Massiv_Koles.push_back(zap3);
+    Massiv_Koles.push_back(kol1);
+    Massiv_Koles.push_back(kol3);
+    Massiv_Koles.push_back(zap2);
+    Massiv_Koles.push_back(zap1);
+    Massiv_Koles.push_back(kol2);
+
+    cout << "Сортировка колес по возрастанию окружности колеса:\n";
+
+    for (MS = Massiv_Koles.begin(); MS != Massiv_Koles.end(); ++MS) //вывод всех объектов контейнера
+    {
+        (*MS)->prosmotr_koleso();
+        cout << "\nОкружность колеса: " << (*MS)->perimetr();
+        cout << "\n";
+    }
+
+    sort(Massiv_Koles.begin(), Massiv_Koles.end(), Vern_poryadok);
+
+    cout << "Список колес после сортировки по возрастанию окружности колеса:\n";
+    for (MS = Massiv_Koles.begin(); MS != Massiv_Koles.end(); ++MS) //вывод всех объектов контейнера
+    {
+        (*MS)->prosmotr_koleso();
+        cout << "\nОкружность колеса: " << (*MS)->perimetr();
+        cout << "\n\n";
+    }
+    /*
     Koleso_Zapaska* Zapaska = new Koleso_Zapaska(14);
     Zapaska->prokol_zapaska(3);
     
@@ -422,7 +481,7 @@ if (menu == '8')
 
     cout << "\n\nКолесо №2 после внесения изменений:";
     Zapaska1->Koleso_print();
-
+    */
 
     /*
     cout << "Введите количество комплектов колес для добавления в одномерный массив: ";
