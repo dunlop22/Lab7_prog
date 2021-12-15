@@ -80,3 +80,11 @@ private:
 	
 };
 
+template<typename T>
+int Roundmin(T& a)  // шаблон функции
+{
+	if (a.auto_otnoshenie() == 0)
+	{
+		return 1;
+	}
+}

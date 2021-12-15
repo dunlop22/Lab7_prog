@@ -13,6 +13,28 @@ public:
 		rab_obem = rab_obem + other.rab_obem;
 		return *this;
 	}
+	bool operator > (Motor Motorik)
+	{
+		if ((*this).koni > Motorik.koni)
+		{
+			return(1);
+		}
+		else
+		{
+			return (0);
+		}
+	}
+	bool operator < (Motor Motorik)
+	{
+		if ((*this).koni < Motorik.koni)
+		{
+			return(1);
+		}
+		else
+		{
+			return (0);
+		}
+	}
 
 
 	void new_motor_info();
@@ -25,5 +47,6 @@ private:
 	double rasxod;
 	double kol_vo_cilindr;
 	double klapan;
+	
 };
 

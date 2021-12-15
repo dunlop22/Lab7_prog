@@ -12,6 +12,39 @@
 #include <locale.h>
 #include <string>
 
+
+template <class T> class Sravnenie
+{
+public:
+    Sravnenie()
+    {
+    }
+
+    bool Bolshe(T mot1, T mot2)
+    {
+        if (mot1 > mot2)
+        {
+            return (1);
+        }
+        else
+        {
+            return (0);
+        }
+    }
+
+    bool Menshe(T mot1, T mot2)
+    {
+        if (mot1 < mot2)
+        {
+            return (1);
+        }
+        else
+        {
+            return (0);
+        }
+    }
+};
+
 void table_print(Koleso Kol_Mass[4][4])
 {
     for (int i = 0; i < 4; i++)
@@ -50,7 +83,7 @@ int main()
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Вызов конструктора базового класса через конструктор производного класса\n7) Перегрузка метода базового класса в производном классе\n8) Перегрузка оператора присваивания объекту производного класса объектов базового класса\n9) Виртуальные функции\n0) Абстрактный класс";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Сравнение (Шаблон)\n7) Перегрузка метода базового класса в производном классе\n8) Перегрузка оператора присваивания объекту производного класса объектов базового класса\n9) Виртуальные функции\n0) Абстрактный класс";
             menu = _getch();
         } while (menu < '0' && menu > '9');
         if (menu == '1')
@@ -195,8 +228,43 @@ int main()
         if (menu == '6')
         {
             system("cls");
+            /*Лабораторная работа 13*/
+
+            Motor *Motorik1 = new Motor();
+            Motor* Motorik2 = new Motor();
+            (*Motorik1).new_motor(249, 10, "2GR-FE", 3.5, 6, 4);
+            (*Motorik2).new_motor(150, 8, "FB20", 2.0, 4, 4);
+
+            cout << "Двигатель №1:\n";
+            Motorik1->prosmotr_motor();
+            cout << "\nДвигатель №2:\n";
+            Motorik2->prosmotr_motor();
+
+            Sravnenie<Motor> Sravni;
+            cout << "\n\n\nДвигатель с большим количеством лошадиных сил:";
+            if (Sravni.Bolshe(*Motorik1, *Motorik2) == 1)
+            {
+                Motorik1->prosmotr_motor();
+            }
+            else
+            {
+                Motorik2->prosmotr_motor();
+            }
+
+            cout << "\n\n\nДвигатель с меньшим количеством лошадиных сил:";
+            if (Sravni.Menshe(*Motorik1, *Motorik2) == 1)
+            {
+                Motorik1->prosmotr_motor();
+            }
+            else
+            {
+                Motorik2->prosmotr_motor();
+            }
+
+            /*
             Koleso_Zapaska* Zapaska = new Koleso_Zapaska(12);
             Zapaska->Koleso_print();
+            */
             cout << "\n\nНажмите любую клавишу для возврата в меню";
             _getch();
             
@@ -509,18 +577,19 @@ if (menu == '9')
             _getch();
         }
         */
-if (menu == '0')
-{
-    system("cls");
-    Koleso *kol= new Koleso();
-    kol->prosmotr_koleso();
+        if (menu == '0')
+        {
+            system("cls");
+            Koleso *kol= new Koleso();
+            kol->prosmotr_koleso();
 
 
-    cout << "\n\nПериметр колеса: " << kol->perimetr() << "мм";
+            cout << "\n\nПериметр колеса: " << kol->perimetr() << "мм";
     
-    cout << "\n\nОбъем колеса: " << kol->obem() << "м^3";
-    cout << "\n\nНажмите любую клавишу для возврата в меню.";
-    _getch();
-}
+            cout << "\n\nОбъем колеса: " << kol->obem() << "м^3";
+            cout << "\n\nНажмите любую клавишу для возврата в меню.";
+            _getch();
+        }
     } while (TRUE);
 }
+
