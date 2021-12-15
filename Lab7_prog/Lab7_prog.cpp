@@ -17,9 +17,9 @@ public:
     Summa()
     {
     }
-    int Sum(T mot1, T mot2)
+    int Sum(T t1, T t2)
     {
-        return (mot1 + mot2);
+        return (t1 + t2);
     }
 };
 
@@ -30,9 +30,9 @@ public:
     {
     }
 
-    int Bolshe(T mot1, T mot2)
+    int Bolshe(T t1, T t2)
     {
-        if (mot1 > mot2)
+        if (t1 > t2)
         {
             return 1;
         }
@@ -42,9 +42,9 @@ public:
         }
     }
 
-    int Menshe(T mot1, T mot2)
+    int Menshe(T t1, T t2)
     {
-        if (mot1 < mot2)
+        if (t1 < t2)
         {
             return 1;
         }
