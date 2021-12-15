@@ -7,32 +7,38 @@ class Motor
 	
 public:
 	Motor();
-	Motor& operator +(Motor& other)
+	/*Motor& operator +(Motor& other)
 	{
 		koni = koni + other.koni;
 		rab_obem = rab_obem + other.rab_obem;
 		return *this;
 	}
-	bool operator > (Motor Motorik)
+	*/
+
+	int operator + (Motor Motorik)
+	{
+		return ((*this).koni + Motorik.koni);
+	}
+	int operator > (Motor Motorik)
 	{
 		if ((*this).koni > Motorik.koni)
 		{
-			return(1);
+			return 1;
 		}
 		else
 		{
-			return (0);
+			return 0;
 		}
 	}
-	bool operator < (Motor Motorik)
+	int operator < (Motor Motorik)
 	{
 		if ((*this).koni < Motorik.koni)
 		{
-			return(1);
+			return 1;
 		}
 		else
 		{
-			return (0);
+			return 0;
 		}
 	}
 
