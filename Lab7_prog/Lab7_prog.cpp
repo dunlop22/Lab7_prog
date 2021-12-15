@@ -11,8 +11,14 @@
 #include "Koleso_Zapaska.h"
 #include <locale.h>
 #include <string>
-
-
+template <class T> class Summa
+{
+public:
+    Summa()
+    {
+    }
+    int k;
+};
 template <class T> class Sravnenie
 {
 public:
@@ -20,27 +26,27 @@ public:
     {
     }
 
-    bool Bolshe(T mot1, T mot2)
+    int Bolshe(T mot1, T mot2)
     {
         if (mot1 > mot2)
         {
-            return (1);
+            return 1;
         }
         else
         {
-            return (0);
+            return 0;
         }
     }
 
-    bool Menshe(T mot1, T mot2)
+    int Menshe(T mot1, T mot2)
     {
         if (mot1 < mot2)
         {
-            return (1);
+            return 1;
         }
         else
         {
-            return (0);
+            return 0;
         }
     }
 };
@@ -237,7 +243,7 @@ int main()
 
             cout << "Двигатель №1:\n";
             Motorik1->prosmotr_motor();
-            cout << "\nДвигатель №2:\n";
+            cout << "\n\n\nДвигатель №2:\n";
             Motorik2->prosmotr_motor();
 
             Sravnenie<Motor> Sravni;
