@@ -14,6 +14,8 @@
 #include <algorithm>
 #include <vector>
 
+int min1;
+int max1;
 template <class T> class Summa
 {
 public:
@@ -91,6 +93,10 @@ bool Vern_poryadok(Koleso* kol1, Koleso* kol2)  //лабораторная ра�
     }
 }
 
+bool poisk(Koleso* koleso)
+{
+    return (koleso->diametr >= min1 && koleso->diametr <= max1);
+}
 
 int main()
 {
@@ -108,7 +114,7 @@ int main()
         do
         {
             system("cls");
-            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Сортировка (Контейнер)\n9) Виртуальные функции\n0) Абстрактный класс";
+            cout << "1) Добавление информации о колесах\n2) Добавление информации о коробке передач\n3) Добавление информации о двигателе\n4) Добавление общей информации\n5) Создание авто\n6) Сравнение (Шаблон)\n7) Сумма (Шаблон)\n8) Сортировка (Контейнер)\n9) Поиск (Контейнер)\n0) Абстрактный класс";
             menu = _getch();
         } while (menu < '0' && menu > '9');
         if (menu == '1')
@@ -425,8 +431,8 @@ if (menu == '8')
     Koleso_Zapaska* zap2 = new Koleso_Zapaska();
     Koleso_Zapaska* zap3 = new Koleso_Zapaska();
     (*kol1).new_koleso(285, 55, 20, "Литье");
-    (*kol1).new_koleso(265, 55, 17, "Литье");
-    (*kol1).new_koleso(235, 55, 16, "Литье");
+    (*kol2).new_koleso(265, 55, 17, "Литье");
+    (*kol3).new_koleso(235, 55, 16, "Литье");
     (*zap1).new_koleso(245, 55, 18, "Ковка");
     (*zap2).new_koleso(185, 55, 15, "Ковка");
     (*zap3).new_koleso(215, 25, 18, "Ковка");
@@ -576,18 +582,80 @@ if (menu == '8')
 if (menu == '9')
 {
     
-    
     system("cls");
+    /*Лабораторная работа 14*/
 
+    vector <Koleso*> Massiv_Koles;
+    vector <Koleso*>::iterator MS;
+    vector <Koleso*>::iterator zapros;
+    Koleso* kol1 = new Koleso();
+    Koleso* kol2 = new Koleso();
+    Koleso* kol3 = new Koleso();
+    Koleso_Zapaska* zap1 = new Koleso_Zapaska();
+    Koleso_Zapaska* zap2 = new Koleso_Zapaska();
+    Koleso_Zapaska* zap3 = new Koleso_Zapaska();
+    (*kol1).new_koleso(285, 55, 20, "Литье");
+    (*kol2).new_koleso(265, 55, 17, "Литье");
+    (*kol3).new_koleso(235, 55, 16, "Литье");
+    (*zap1).new_koleso(245, 55, 18, "Ковка");
+    (*zap2).new_koleso(185, 55, 15, "Ковка");
+    (*zap3).new_koleso(215, 25, 18, "Ковка");
 
+    Massiv_Koles.clear();
+    Massiv_Koles.push_back(zap3);
+    Massiv_Koles.push_back(kol1);
+    Massiv_Koles.push_back(kol3);
+    Massiv_Koles.push_back(zap2);
+    Massiv_Koles.push_back(zap1);
+    Massiv_Koles.push_back(kol2);
+
+    for (MS = Massiv_Koles.begin(); MS != Massiv_Koles.end(); ++MS) //вывод всех объектов контейнера
+    {
+        (*MS)->prosmotr_koleso();
+        cout << "\nОкружность колеса: " << (*MS)->perimetr();
+        cout << "\n";
+    }
+
+    cout << "\n\nВведите минимальное значение диаметра колеса для поиска: ";
+    do
+    {
+        cin >> min1;
+        if (min1 < 0)
+        {
+            cout << "Данное значение недопустимо.\nПовторите ввод: ";
+        }
+    } while (min1 < 0);
+
+    cout << "Введите максимальное значение диаметра колеса для поиска: ";
+    do
+    {
+        cin >> max1;
+        if (max1 < min1)
+        {
+            cout << "Данное значение недопустимо.\nПовторите ввод: ";
+        }
+    } while (max1 < 0 && max1 < min1);
+
+    cout << "\n\n\nКолеса, удовлетворяющие запросу:\n\n\n";
+
+    for (zapros = Massiv_Koles.begin(); zapros != Massiv_Koles.end(); ++zapros)
+    {
+        MS = find_if(zapros, Massiv_Koles.end(), poisk);
+        if (MS != Massiv_Koles.end()) 
+        { 
+            (*MS)->prosmotr_koleso(); 
+            zapros = MS; 
+            cout << "\n"; 
+        }
+    }
+
+    /*
 
     Koleso kol;
     Koleso_Zapaska kol_zap;
-    
 
     Koleso* kolesik = &kol;
     kol.new_koleso(110, 30, 15, "Штамп");
-    
 
     kol_zap.new_koleso(110, 30, 20, "Штамп");
 
@@ -595,11 +663,9 @@ if (menu == '9')
     kolesik = &kol_zap;
     cout << kolesik->get_tip();
 
-
     cout << "\n\nНажмите любую клавишу для возврата в меню.";
     _getch();
-
-    
+    */
 
     /*
     Koleso Kol_Mass[4][4];
@@ -638,6 +704,8 @@ if (menu == '9')
         podmenu = _getch();
     } while (podmenu != '0');
     */
+    cout << "\n\nНажмите любую клавишу для возврата в меню.";
+    _getch();
 }
         /*
         {
